@@ -23,25 +23,36 @@ public class QueryParamsJsonSerializer extends JsonSerializer<Object> implements
     }
 
     public static StringBuilder getStringBuilder(Object value) {
-        Field[] declaredFields = value.getClass().getDeclaredFields();
+        Map<String, Object> map = getValuesMap(value);
         StringBuilder builder = new StringBuilder();
+        for (String fieldName : map.keySet()) {
+            if (builder.length() > 0) {
+                builder.append("&");
+            }
+
+            builder.append(fieldName).append("=").append(String.valueOf(map.get(fieldName)));
+        }
+
+        return builder;
+    }
+
+    public static Map<String, Object> getValuesMap(Object value) {
+        Field[] declaredFields = value.getClass().getDeclaredFields();
+        Map<String, Object> values = new HashMap<>();
         for (Field field : declaredFields) {
             if ((field.getModifiers() | Modifier.PUBLIC) > 0) {
                 try {
                     Object fieldValue = field.get(value);
                     if (fieldValue != null) {
-                        if (builder.length() > 0) {
-                            builder.append("&");
-                        }
-
-                        builder.append(field.getName()).append("=").append(String.valueOf(fieldValue));
+                        values.put(field.getName(), fieldValue);
                     }
                 } catch (IllegalAccessException e) {
                     throw new IllegalStateException(e);
                 }
             }
         }
-        return builder;
+
+        return values;
     }
 
     public static Map<String, ?> of(String serialized) {
