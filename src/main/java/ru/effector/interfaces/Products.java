@@ -30,7 +30,7 @@ public interface Products {
     );
 
     @GET
-    @Path("/ranks?")
+    @Path("/ranks")
     ProductRanksResponse ranks(
             @PathParam("vertical") Vertical vertical,
             @PathParam("market") Market market,
