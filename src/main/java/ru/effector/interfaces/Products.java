@@ -6,11 +6,9 @@ import ru.effector.model.Market;
 import ru.effector.model.Vertical;
 import ru.effector.responses.ProductDetailsResponse;
 import ru.effector.responses.ProductRanksResponse;
+import ru.effector.responses.ProductRatingsResponse;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 
 /**
  * @author Alexandr Kolosov
@@ -48,5 +46,15 @@ public interface Products {
             @QueryParam("end_date") String endDate,
             @QueryParam("interval") Interval interval,
             @QueryParam("contries") String countries
+    );
+
+    @GET
+    @Path("/ratings")
+    ProductRatingsResponse ratings(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("asset") Asset asset,
+            @PathParam("product_id") Integer productId,
+            @QueryParam("page_index") @DefaultValue("0") int pageIndex
     );
 }
