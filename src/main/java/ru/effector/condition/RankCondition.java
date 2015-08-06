@@ -8,12 +8,9 @@ import ru.effector.utils.QueryParamsJsonSerializer;
  * @author Alexandr Kolosov
  * @since 06.08.2015
  */
-public class RankCondition extends PageIndexCondition {
+public class RankCondition extends BaseCondition {
 
-    public String startDate;
-    public String endDate;
     public Interval interval;
-    public String countries;
     public String category;
     public String feed;
     public Device device;

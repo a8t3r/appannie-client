@@ -1,6 +1,7 @@
 package ru.effector.interfaces;
 
 import ru.effector.condition.RankCondition;
+import ru.effector.condition.ReviewCondition;
 import ru.effector.model.Asset;
 import ru.effector.model.Market;
 import ru.effector.model.Vertical;
@@ -20,15 +21,6 @@ public interface Products {
     @GET
     @Path("/details")
     ProductDetailsResponse details(
-            @PathParam("vertical") Vertical vertical,
-            @PathParam("market") Market market,
-            @PathParam("asset") Asset asset,
-            @PathParam("product_id") Integer productId
-    );
-
-    @GET
-    @Path("/ranks")
-    ProductRanksResponse ranks(
             @PathParam("vertical") Vertical vertical,
             @PathParam("market") Market market,
             @PathParam("asset") Asset asset,
@@ -61,19 +53,7 @@ public interface Products {
             @PathParam("vertical") Vertical vertical,
             @PathParam("market") Market market,
             @PathParam("asset") Asset asset,
-            @PathParam("product_id") Integer productId
-    );
-
-    @GET
-    @Path("/reviews")
-    ProductRanksResponse reviews(
-            @PathParam("vertical") Vertical vertical,
-            @PathParam("market") Market market,
-            @PathParam("asset") Asset asset,
             @PathParam("product_id") Integer productId,
-            @QueryParam("start_date") String startDate,
-            @QueryParam("end_date") String endDate,
-            @QueryParam("countries") String countries,
-            @QueryParam("page_index") @DefaultValue("0") int pageIndex
+            @QueryParam("__expand") ReviewCondition condition
     );
 }

@@ -37,7 +37,7 @@ public class QueryParamsJsonSerializer extends JsonSerializer<Object> implements
     }
 
     public static Map<String, String> getValuesMap(Object value) {
-        Field[] declaredFields = value.getClass().getDeclaredFields();
+        Field[] declaredFields = value.getClass().getFields();
         Map<String, String> values = new HashMap<>();
         for (Field field : declaredFields) {
             if ((field.getModifiers() | Modifier.PUBLIC) > 0) {
