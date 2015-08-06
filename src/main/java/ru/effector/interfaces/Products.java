@@ -57,4 +57,26 @@ public interface Products {
             @PathParam("product_id") Integer productId,
             @QueryParam("page_index") @DefaultValue("0") int pageIndex
     );
+
+    @GET
+    @Path("/reviews")
+    ProductRanksResponse reviews(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("asset") Asset asset,
+            @PathParam("product_id") Integer productId
+    );
+
+    @GET
+    @Path("/reviews")
+    ProductRanksResponse reviews(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("asset") Asset asset,
+            @PathParam("product_id") Integer productId,
+            @QueryParam("start_date") String startDate,
+            @QueryParam("end_date") String endDate,
+            @QueryParam("contries") String countries,
+            @QueryParam("page_index") @DefaultValue("0") int pageIndex
+    );
 }

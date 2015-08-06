@@ -1,6 +1,6 @@
 package ru.effector.responses;
 
-import ru.effector.model.Rating;
+import ru.effector.model.Review;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import java.util.List;
  * @author Alexandr Kolosov
  * @since 06.08.2015
  */
-public class ProductRatingsResponse extends BasicResponse {
+public class ProductReviewsResponse extends PageableResponse {
 
     public String productName;
-    public List<Rating> ratings;
+    public List<Review> reviews;
 
 }
