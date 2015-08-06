@@ -2,7 +2,7 @@ package ru.effector.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ru.effector.utils.CategoryPathJsonDeserializer;
-import ru.effector.utils.StringListJsonDeserializer;
+import ru.effector.utils.StringCommaListJsonDeserializer;
 
 import java.util.Date;
 import java.util.List;
@@ -31,12 +31,12 @@ public class ProductDetail {
     public Boolean hasIAP;
     public String size;
 
-    @JsonDeserialize(using = StringListJsonDeserializer.class)
+    @JsonDeserialize(using = StringCommaListJsonDeserializer.class)
     public List<String> languages;
 
     public String mainCategory;
 
-    @JsonDeserialize(using = StringListJsonDeserializer.class)
+    @JsonDeserialize(using = StringCommaListJsonDeserializer.class)
     public List<String> otherCategories;
 
     @JsonDeserialize(using = CategoryPathJsonDeserializer.class)

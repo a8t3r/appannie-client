@@ -53,10 +53,12 @@ public class FeignBuilder {
                     PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES;
 
             String value = internalView.iterator().next();
-            Map<String, String> map = QueryParamsJsonSerializer.of(value);
-            requestFacade.query(EXPAND);
-            for (String paramName : map.keySet()) {
-                requestFacade.query(strategy.translate(paramName), map.get(paramName));
+            if (value.length() > 0) {
+                Map<String, String> map = QueryParamsJsonSerializer.of(value);
+                requestFacade.query(EXPAND);
+                for (String paramName : map.keySet()) {
+                    requestFacade.query(strategy.translate(paramName), map.get(paramName));
+                }
             }
         }
     }

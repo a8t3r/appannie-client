@@ -1,11 +1,13 @@
 package ru.effector.interfaces;
 
+import ru.effector.condition.BaseCondition;
 import ru.effector.condition.RankCondition;
 import ru.effector.condition.ReviewCondition;
 import ru.effector.model.Asset;
 import ru.effector.model.Market;
 import ru.effector.model.Vertical;
 import ru.effector.responses.ProductDetailsResponse;
+import ru.effector.responses.ProductFeaturesResponse;
 import ru.effector.responses.ProductRanksResponse;
 import ru.effector.responses.ProductRatingsResponse;
 
@@ -55,5 +57,15 @@ public interface Products {
             @PathParam("asset") Asset asset,
             @PathParam("product_id") Integer productId,
             @QueryParam("__expand") ReviewCondition condition
+    );
+
+    @GET
+    @Path("/features")
+    ProductFeaturesResponse features(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("asset") Asset asset,
+            @PathParam("product_id") Integer productId,
+            @QueryParam("__expand") BaseCondition condition
     );
 }

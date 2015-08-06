@@ -2,7 +2,6 @@ package ru.effector.condition;
 
 import ru.effector.model.Device;
 import ru.effector.model.Interval;
-import ru.effector.utils.QueryParamsJsonSerializer;
 
 /**
  * @author Alexandr Kolosov
@@ -15,9 +14,4 @@ public class RankCondition extends BaseCondition {
     public String feed;
     public Device device;
 
-    @Override
-    public String toString() {
-        return QueryParamsJsonSerializer.getStringBuilder(this)
-                .toString();
-    }
 }
