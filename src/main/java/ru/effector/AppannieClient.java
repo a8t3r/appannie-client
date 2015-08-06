@@ -13,7 +13,7 @@ import ru.effector.utils.FeignBuilder;
  */
 public class AppannieClient {
 
-    public static final String serverUrl = "http://api.appannie.com/v1.2/";
+    public static final String serverUrl = "https://api.appannie.com/v1.2/";
 
     private final Feign feign;
 

@@ -23,28 +23,28 @@ public class QueryParamsJsonSerializer extends JsonSerializer<Object> implements
     }
 
     public static StringBuilder getStringBuilder(Object value) {
-        Map<String, Object> map = getValuesMap(value);
+        Map<String, String> map = getValuesMap(value);
         StringBuilder builder = new StringBuilder();
         for (String fieldName : map.keySet()) {
             if (builder.length() > 0) {
                 builder.append("&");
             }
 
-            builder.append(fieldName).append("=").append(String.valueOf(map.get(fieldName)));
+            builder.append(fieldName).append("=").append(map.get(fieldName));
         }
 
         return builder;
     }
 
-    public static Map<String, Object> getValuesMap(Object value) {
+    public static Map<String, String> getValuesMap(Object value) {
         Field[] declaredFields = value.getClass().getDeclaredFields();
-        Map<String, Object> values = new HashMap<>();
+        Map<String, String> values = new HashMap<>();
         for (Field field : declaredFields) {
             if ((field.getModifiers() | Modifier.PUBLIC) > 0) {
                 try {
                     Object fieldValue = field.get(value);
                     if (fieldValue != null) {
-                        values.put(field.getName(), fieldValue);
+                        values.put(field.getName(), String.valueOf(fieldValue));
                     }
                 } catch (IllegalAccessException e) {
                     throw new IllegalStateException(e);
@@ -55,8 +55,8 @@ public class QueryParamsJsonSerializer extends JsonSerializer<Object> implements
         return values;
     }
 
-    public static Map<String, ?> of(String serialized) {
-        Map<String, Object> result = new HashMap<>();
+    public static Map<String, String> of(String serialized) {
+        Map<String, String> result = new HashMap<>();
         String[] parts = serialized.split("&");
         for (String part : parts) {
             String[] queryPair = part.split("=");
