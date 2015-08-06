@@ -11,7 +11,7 @@ public class ProductRank {
     public String country;
     public String category;
     public Feed feed;
-    public String interval;
+    public Interval interval;
     public Map<String, Integer> ranks;
 
 }

@@ -1,6 +1,7 @@
 package ru.effector.interfaces;
 
 import ru.effector.model.Asset;
+import ru.effector.model.Interval;
 import ru.effector.model.Market;
 import ru.effector.model.Vertical;
 import ru.effector.responses.ProductDetailsResponse;
@@ -9,6 +10,7 @@ import ru.effector.responses.ProductRanksResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 /**
  * @author Alexandr Kolosov
@@ -35,4 +37,16 @@ public interface Products {
             @PathParam("product_id") Integer productId
     );
 
+    @GET
+    @Path("/ranks")
+    ProductRanksResponse ranks(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("asset") Asset asset,
+            @PathParam("product_id") Integer productId,
+            @QueryParam("start_date") String startDate,
+            @QueryParam("end_date") String endDate,
+            @QueryParam("interval") Interval interval,
+            @QueryParam("contries") String countries
+    );
 }
