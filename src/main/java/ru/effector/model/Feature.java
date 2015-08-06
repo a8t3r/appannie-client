@@ -1,7 +1,7 @@
 package ru.effector.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import ru.effector.utils.StringListJsonDeserializer;
+import ru.effector.utils.deserializers.StringListJsonDeserializer;
 
 import java.util.Date;
 import java.util.List;

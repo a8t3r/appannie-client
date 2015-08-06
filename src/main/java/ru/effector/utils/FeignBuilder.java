@@ -9,6 +9,7 @@ import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.jaxrs.JAXRSContract;
 import feign.slf4j.Slf4jLogger;
+import ru.effector.utils.deserializers.QueryParamsJsonSerializer;
 
 import java.util.Collection;
 import java.util.Map;

@@ -1,8 +1,10 @@
 package ru.effector.interfaces;
 
+import ru.effector.condition.SaleCondition;
 import ru.effector.responses.AccountConnectionSalesResponse;
 import ru.effector.responses.AccountProductResponse;
 import ru.effector.responses.AccountResponse;
+import ru.effector.responses.ProductSalesResponse;
 
 import javax.ws.rs.*;
 
@@ -27,5 +29,13 @@ public interface Accounts {
     AccountConnectionSalesResponse accountSales(
             @PathParam("account_id") Integer accountId,
             @QueryParam("page_index") @DefaultValue("0") int pageIndex
+    );
+
+    @GET
+    @Path("/{account_id}/products/{product_id}/sales")
+    ProductSalesResponse sales(
+            @PathParam("account_id") Integer accountId,
+            @PathParam("product_id") Integer productId,
+            @QueryParam("__expand") SaleCondition condition
     );
 }

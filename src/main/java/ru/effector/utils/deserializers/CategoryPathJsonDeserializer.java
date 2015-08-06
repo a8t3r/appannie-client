@@ -1,4 +1,4 @@
-package ru.effector.utils;
+package ru.effector.utils.deserializers;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

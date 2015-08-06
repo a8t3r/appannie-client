@@ -1,6 +1,6 @@
 package ru.effector.condition;
 
-import ru.effector.utils.QueryParamsJsonSerializer;
+import ru.effector.utils.deserializers.QueryParamsJsonSerializer;
 
 /**
  * @author Alexandr Kolosov

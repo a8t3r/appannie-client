@@ -3,7 +3,7 @@ package ru.effector.responses;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ru.effector.model.Device;
 import ru.effector.model.ProductRank;
-import ru.effector.utils.DateKeyDeserializer;
+import ru.effector.utils.deserializers.DateKeyDeserializer;
 
 import java.util.Date;
 import java.util.List;
