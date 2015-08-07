@@ -3,6 +3,7 @@ package ru.effector;
 import feign.Feign;
 import feign.Target;
 import ru.effector.interfaces.Accounts;
+import ru.effector.interfaces.Meta;
 import ru.effector.interfaces.Products;
 import ru.effector.interfaces.Sharings;
 import ru.effector.utils.FeignBuilder;
@@ -31,6 +32,10 @@ public class AppannieClient {
 
     public Products products() {
         return build(Products.class);
+    }
+
+    public Meta meta() {
+        return build(Meta.class);
     }
 
     public  <T> T build(Class<T> serviceInterface) {
