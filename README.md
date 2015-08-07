@@ -3,7 +3,7 @@
 Java client for appannie [rest api v1.2](https://support.appannie.com/hc/en-us/categories/200261564-Analytics-API-v1-2-).
 Implemented over [feign library](https://github.com/Netflix/feign)
 
-Supported methods:
+## Supported methods:
 * Data APIs
  * Account Connection Sales
  * Product Details
@@ -25,3 +25,17 @@ Supported methods:
  * Account Connections List
  * Account Connection Product List
  * Shared Products List
+
+## Examples
+
+```java
+AppannieClient client = new AppannieClient("YOUR-TOKEN");
+Accounts accounts = client.accounts();
+int pageNum = 0;
+AccountResponse accountList = accounts.accounts(pageNum);
+Assert.assertNotNull(accountList);
+
+Account account = accountList.accounts.iterator().next();
+AccountProductResponse productList = accounts.accountProducts(account.accountId, pageNum);
+Assert.assertNotNull(productList);
+```
