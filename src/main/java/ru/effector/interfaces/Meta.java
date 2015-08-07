@@ -35,4 +35,15 @@ public interface Meta {
     @Path("/{vertical}/{market}/devices")
     DevicesResponse devices(@PathParam("vertical") Vertical vertical, @PathParam("market") Market market);
 
+    @GET
+    @Path("/{vertical}/{market}/feeds")
+    FeedResponse feeds(@PathParam("vertical") Vertical vertical, @PathParam("market") Market market);
+
+    @GET
+    @Path("/{vertical}/{market}/package-codes2ids?package_codes={package_codes}")
+    TranslateResponse translate(
+            @PathParam("vertical") Vertical vertical,
+            @PathParam("market") Market market,
+            @PathParam("package_codes") String packageCodes);
+
 }

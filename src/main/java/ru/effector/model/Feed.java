@@ -6,6 +6,6 @@ package ru.effector.model;
  */
 public enum Feed {
 
-    free, paid, grossing
+    free, paid, grossing, new_rising
 
 }
