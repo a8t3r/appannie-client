@@ -2,9 +2,7 @@ package ru.effector.interfaces;
 
 import ru.effector.model.Market;
 import ru.effector.model.Vertical;
-import ru.effector.responses.CategoriesResponse;
-import ru.effector.responses.CountriesResponse;
-import ru.effector.responses.MarketsResponse;
+import ru.effector.responses.*;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -28,5 +26,13 @@ public interface Meta {
     @GET
     @Path("/markets")
     MarketsResponse markets();
+
+    @GET
+    @Path("/currencies")
+    CurrenciesResponse currencies();
+
+    @GET
+    @Path("/{vertical}/{market}/devices")
+    DevicesResponse devices(@PathParam("vertical") Vertical vertical, @PathParam("market") Market market);
 
 }
