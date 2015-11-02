@@ -17,5 +17,6 @@ public class Product {
     public Boolean status;
     public Date firstSalesDate;
     public Date lastSalesDate;
+    public Market market;
 
 }

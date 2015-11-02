@@ -11,6 +11,10 @@ import java.util.List;
 public class ProductRatingsResponse extends BasicResponse {
 
     public String productName;
+    public int pageIndex;
+    public int prevPage;
+    public int nextPage;
+    public int pageNum;
     public List<Rating> ratings;
 
 }

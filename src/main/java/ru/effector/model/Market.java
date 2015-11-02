@@ -18,6 +18,7 @@ public enum Market {
     windows_store,
     ibooks_store,
     kindle_store,
+    aarki,
     adbuddiz,
     adcolony,
     admob,

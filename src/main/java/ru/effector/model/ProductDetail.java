@@ -45,6 +45,8 @@ public class ProductDetail {
     @JsonDeserialize(using = CategoryPathJsonDeserializer.class)
     public List<List<String>> otherCategoryPaths;
 
+
+    public String originalIcon;
     public FamilySharing familySharing;
     public String seller;
     public List<String> appsInThisBundle;
